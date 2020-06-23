@@ -1,5 +1,9 @@
 package io.ThreadLocal;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class Test {
 
     public static void main(String[] args) throws InterruptedException {
@@ -7,14 +11,21 @@ public class Test {
         //Thread t1=new Thread(simpleRunnable,"First_Thread");
         //Thread t2=new Thread(simpleRunnable,"Second_Thread");
 
-        ThreadLocalRunnable threadLocalRunnable=new ThreadLocalRunnable();
-
+       ThreadLocalRunnable threadLocalRunnable=new ThreadLocalRunnable();
+         /*
         Thread t1=new Thread(threadLocalRunnable,"First_Thread");
-        Thread t2=new Thread(threadLocalRunnable,"Second_Thread");
+        Thread t2=new Thread(threadLocalRunnable,"Second_Thread");*/
 
-        t1.start();
-        t1.join();
+        ExecutorService executorService= Executors.newSingleThreadExecutor();
+
+        executorService.submit(threadLocalRunnable);
+        executorService.submit(threadLocalRunnable);
+
+        executorService.shutdown();
+
+        /*t1.start();
+        //t1.join();
         t2.start();
-        t2.join();
+        //t2.join();*/
     }
 }
