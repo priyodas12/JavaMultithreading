@@ -16,8 +16,10 @@ public class Test {
         Thread t1=new Thread(threadLocalRunnable,"First_Thread");
         Thread t2=new Thread(threadLocalRunnable,"Second_Thread");*/
 
-        ExecutorService executorService= Executors.newSingleThreadExecutor();
+        //ExecutorService executorService= Executors.newSingleThreadExecutor();
+        ExecutorService executorService= Executors.newFixedThreadPool(3);
 
+        executorService.submit(threadLocalRunnable);
         executorService.submit(threadLocalRunnable);
         executorService.submit(threadLocalRunnable);
 
