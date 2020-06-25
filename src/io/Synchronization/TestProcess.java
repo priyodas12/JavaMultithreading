@@ -6,9 +6,8 @@ public class TestProcess {
         ProcessThread p=new ProcessThread();
 
         Thread t1=new Thread(p,"Processor 1");
-        Thread t2=new Thread(p,"Processor 2");
-
         t1.start();
+        Thread t2=new Thread(p,"Processor 2");
         t2.start();
     }
 }
