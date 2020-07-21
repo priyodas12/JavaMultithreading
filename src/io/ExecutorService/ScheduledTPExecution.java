@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ScheduledTPExecution {
     public static void main(String[] args) {
-        //task will be stored in delay queue with the sequence of less delay object in priority position.
+        //task will be stored in DelayedWorkQueue with the sequence of less delay object in priority position.
         ScheduledExecutorService executorService= Executors.newScheduledThreadPool(10);
 
         //executorService.schedule(new Task(),10, TimeUnit.SECONDS);

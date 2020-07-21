@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 public class CachedTPExecution {
 
     public static void main(String[] args) {
-        //only one Task will be saved in Synchronous queue, and it will search free thread to execute,if not found the it will create new thread.
+        //only one Task will be saved in SynchronousQueue, and it will search free thread to execute,if not found the it will create new thread.
         //idle thread will wait up to 60 sec after that it will be killed.
         ExecutorService executorService= Executors.newCachedThreadPool();
 

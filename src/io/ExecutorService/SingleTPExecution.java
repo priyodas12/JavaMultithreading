@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 public class SingleTPExecution {
 
     public static void main(String[] args) {
-        //task will be placed in blocking queue
+        //task will be placed in LinkedBlockingQueue
         //executable thread size is one ,best for predefined sequential task.
         ExecutorService executorService= Executors.newSingleThreadExecutor();
 

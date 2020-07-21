@@ -15,7 +15,7 @@ import java.util.stream.IntStream;
 public class FixedTPExecution {
 
     public static void main(String[] args) {
-        //within the executorService it maintains a blocking queue to save tasks.all thread will process task concurrently.
+        //within the executorService it maintains a LinkedBlockingQueue to save tasks.all thread will process task concurrently.
         ExecutorService executorService= Executors.newFixedThreadPool(10);
 
         for(int i=0;i<100;i++){
