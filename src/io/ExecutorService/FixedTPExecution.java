@@ -1,8 +1,9 @@
 package io.ExecutorService;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.stream.IntStream;
+import java.util.concurrent.Future;
 
 /*1 Java Thread=1 CPU Core Thread.
 * if its CPU intensive(like complex Hashcode calculation) ops then ideal pool size must be same as CPU core size.
@@ -18,8 +19,20 @@ public class FixedTPExecution {
         //within the executorService it maintains a LinkedBlockingQueue to save tasks.all thread will process task concurrently.
         ExecutorService executorService= Executors.newFixedThreadPool(10);
 
+        // uncomment below for executing runnable task.
+        /*for(int i=0;i<100;i++){
+            executorService.execute(new RunnableTask());
+        }*/
         for(int i=0;i<100;i++){
-            executorService.execute(new Task());
+            //Future is like placeholder for some amount of time.
+            Future<Integer> future=executorService.submit(new CallableTask());
+            try {
+                System.out.println(future.get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
         }
 
         System.out.println("Thread Name:"+Thread.currentThread().getName());

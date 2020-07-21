@@ -1,6 +1,6 @@
 package io.ExecutorService;
-
-public class Task implements Runnable{
+// Runnable Task
+public class RunnableTask implements Runnable{
     @Override
     public void run() {
         try {

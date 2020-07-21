@@ -1,6 +1,5 @@
 package io.ExecutorService;
 
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -14,7 +13,7 @@ public class ScheduledTPExecution {
 
         for(int i=0;i<100;i++){
             //task to tun after 10 sec delay.
-            executorService.schedule(new Task(),10, TimeUnit.SECONDS);
+            executorService.schedule(new RunnableTask(),10, TimeUnit.SECONDS);
         }
 
         System.out.println("Thread Name:"+Thread.currentThread().getName());

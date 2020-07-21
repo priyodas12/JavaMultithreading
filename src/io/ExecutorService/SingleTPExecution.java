@@ -11,7 +11,7 @@ public class SingleTPExecution {
         ExecutorService executorService= Executors.newSingleThreadExecutor();
 
         for(int i=0;i<100;i++){
-            executorService.execute(new Task());
+            executorService.execute(new RunnableTask());
         }
 
         System.out.println("Thread Name:"+Thread.currentThread().getName());
