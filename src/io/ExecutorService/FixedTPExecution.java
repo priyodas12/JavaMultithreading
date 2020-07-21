@@ -4,8 +4,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
 
+/*1 Java Thread=1 CPU Core Thread.
+* if its CPU intensive(like complex Hashcode calculation) ops then ideal pool size must be same as CPU core size.
+* if its a I/O intensive task(any network call) there will be more waiting time so thread pool size must be larger as possible.
+* */
+
 public class FixedTPExecution {
-    //1 Java Thread=1 CPU Core Thread.
+
     public static void main(String[] args) {
         //within the executorService it maintains a blocking queue to save tasks.all thread will process task concurrently.
         ExecutorService executorService= Executors.newFixedThreadPool(10);
