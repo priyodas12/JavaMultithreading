@@ -7,6 +7,9 @@ import java.util.stream.IntStream;
 /*1 Java Thread=1 CPU Core Thread.
 * if its CPU intensive(like complex Hashcode calculation) ops then ideal pool size must be same as CPU core size.
 * if its a I/O intensive task(any network call) there will be more waiting time so thread pool size must be larger as possible.
+*
+*
+* Here fixed number of thread,and task will be collected concurrently;
 * */
 
 public class FixedTPExecution {
