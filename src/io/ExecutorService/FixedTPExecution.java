@@ -1,5 +1,7 @@
 package io.ExecutorService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -23,16 +25,20 @@ public class FixedTPExecution {
         /*for(int i=0;i<100;i++){
             executorService.execute(new RunnableTask());
         }*/
+
+        List<Future<Integer>> list=new ArrayList<>();
         for(int i=0;i<100;i++){
-            //Future is like placeholder for some amount of time.
+            //Future is like placeholder for a variable some amount of time.
             Future<Integer> future=executorService.submit(new CallableTask());
+            list.add(future);
             try {
-                System.out.println(future.get());
+                System.out.println(list.get(i).get());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             }
+            System.out.println(list.size());
         }
 
         System.out.println("Thread Name:"+Thread.currentThread().getName());
