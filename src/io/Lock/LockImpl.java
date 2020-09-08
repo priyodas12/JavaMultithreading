@@ -13,7 +13,7 @@ public class LockImpl {
         try{
             //access the resource
             a=++a;
-            System.out.println(a+" incremented by"+Thread.currentThread().getName());
+            System.out.println(a+" incremented by "+Thread.currentThread().getName());
         }
         finally {
             reentrantLock.unlock();
@@ -27,7 +27,7 @@ public class LockImpl {
         Thread t3= new Thread(() -> accessResource());
         Thread t4= new Thread(() -> accessResource());
         t1.start();
-        System.out.println(a+" printed by"+Thread.currentThread().getName());
+        System.out.println(a+" printed by "+Thread.currentThread().getName());
         t2.start();
         System.out.println(a+" printed by"+Thread.currentThread().getName());
         t3.start();
